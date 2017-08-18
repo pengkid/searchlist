@@ -26,9 +26,10 @@ data.s.forEach(function (item) {
 document.getElementsByTagName('div')[0].replaceChild(newUlist, ulList);
 ```
 
-* 事件代理
+* 内存泄漏优化
 
-使用事件代理，在ul中绑定click事件，减少了事件注册，节省了内存占用，大大提高了性能。同时，能够让每个动态添加的li都能绑定事件。
+  *  使用事件代理
+    使用事件代理，在ul中绑定click事件，减少了事件注册，节省了内存占用，大大提高了性能。同时，能够让每个动态添加的li都能绑定事件。
 
 ```js
 EventUtil.addHandler(newUlist, 'click', function (event) {
@@ -39,6 +40,12 @@ EventUtil.addHandler(newUlist, 'click', function (event) {
         window.open('https://www.baidu.com/s?word=' + wd);
     }
 });
+```
+
+  *  移除旧ul
+
+```js
+ulList = null;
 ```
 
 

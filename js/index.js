@@ -111,7 +111,6 @@ function hideList(e) {
     if (tagname !== 'li' && tagname !== 'input') {
         EventUtil.addClass(ulList, 'hide');
     }
-
 }
 //获得焦点触发
 function showList() {
