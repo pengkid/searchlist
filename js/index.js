@@ -69,18 +69,16 @@ function fn(data) {
     document.getElementsByTagName('div')[0].replaceChild(newUlist, ulList);
     ulList = null;//垃圾回收
 
-    [].forEach.call(newUlist.childNodes,function (item) {
+    [].forEach.call(newUlist.childNodes, function (item) {
         EventUtil.addHandler(item, 'mouseenter', function (event) {
             var target = event.target ||event.srcElement;
             if (target.tagName.toLowerCase() === 'li') {
-
                 resetStyle(target);
             }
         });
         EventUtil.addHandler(item, 'mouseout', function (event) {
             var target = event.target ||event.srcElement;
             if (target.tagName.toLowerCase() === 'li') {
-                console.log(target)
                 resetStyle(target);
                 EventUtil.removeClass(item, 'hover');
             }
@@ -96,7 +94,6 @@ function fn(data) {
             var wd = target.innerHTML;
             window.open('https://www.baidu.com/s?word=' + wd);
         }
-
     });
 
 //delete scripts
@@ -159,7 +156,6 @@ function onKeydown(e) {
         txtInput.value = (ulList.dataset.listIndex == -1) ? ulList.dataset.query : ulList.childNodes[ulList.dataset.listIndex].innerHTML;
         //重新设置样式
         resetStyle(ulList.childNodes[ulList.dataset.listIndex]);
-
     }
 
 }
