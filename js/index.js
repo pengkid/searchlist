@@ -47,13 +47,19 @@ var EventUtil = {
     }
 };
 
+//转译html代码，预防xss
+function safeHtml(str){
+    var s="";
+    s = str.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    return s;
+}
+
 function onInput(e) {
     if (e.target.value.trim() != '') {
         var s = document.createElement('script');
         s.src = 'http://www.baidu.com/su?&wd=' + encodeURI(this.value.trim()) + '&p=3&cb=fn';
         document.body.appendChild(s);
     }
-
 }
 
 function fn(data) {
@@ -63,7 +69,7 @@ function fn(data) {
     newUlist.dataset.listIndex = -1;
     data.s.forEach(function (item) {
         var li = document.createElement('li');
-        li.textContent = item;
+        li.textContent = safeHtml(item);
         newUlist.appendChild(li);
     })
     document.getElementsByTagName('div')[0].replaceChild(newUlist, ulList);
