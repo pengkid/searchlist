@@ -43,12 +43,6 @@ EventUtil.addHandler(newUlist, 'click', function (event) {
 });
 ```
 
-  *  移除旧ul
-
-```js
-ulList = null;
-```
-
 * xss预防策略
 
 转译html代码，防止恶意JS脚本注入：
