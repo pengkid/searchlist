@@ -102,7 +102,7 @@ function fn(data) {
         }
     });
 
-//delete scripts
+    //delete scripts
     var s = document.body.querySelectorAll('script');
     for (var i = 1, len = s.length; i < len; i++) {
         document.body.removeChild(s[i]);
